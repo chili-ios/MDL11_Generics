@@ -8,32 +8,40 @@
 
 import UIKit
 
-class UserCell: UITableViewCell {
+class UserCell: UITableViewCell, ConfigurableCell {
     @IBOutlet weak var avatarView: UIImageView!
     @IBOutlet weak var userNameLabel: UILabel!
 
-    func configure(user: User) {
+    func configure(data user: User) {
         avatarView.image = UIImage(named: user.imageName)
         userNameLabel.text = user.name
     }
 }
 
 
-class MessageCell: UITableViewCell {
+class MessageCell: UITableViewCell, ConfigurableCell {
     @IBOutlet weak var messageLabel: UILabel!
 
-    func configure(message: String) {
+    func configure(data message: String) {
         messageLabel.text = message
     }
 }
 
 
-class ImageCell: UITableViewCell {
+class ImageCell: UITableViewCell, ConfigurableCell {
     @IBOutlet weak var pictureView: UIImageView!
 
-    func configure(url: URL) {
+    func configure(data url: URL) {
         if let data = try? Data(contentsOf: url) {
             self.pictureView.image = UIImage(data: data)
         }
+    }
+}
+
+class WarningCell: UITableViewCell, ConfigurableCell {
+    @IBOutlet weak var messageLabel: UILabel!
+    
+    func configure(data message: String) {
+        messageLabel.text = message
     }
 }

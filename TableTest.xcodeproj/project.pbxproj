@@ -16,6 +16,7 @@
 		499C34E31F52BAB000000412 /* Data.swift in Sources */ = {isa = PBXBuildFile; fileRef = 499C34E21F52BAB000000412 /* Data.swift */; };
 		499C34E71F52BDE700000412 /* TableViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 499C34E61F52BDE700000412 /* TableViewModel.swift */; };
 		499C34E91F52C32D00000412 /* beach@2x.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 499C34E81F52C32D00000412 /* beach@2x.jpg */; };
+		499C350D1F56F32400000412 /* CellConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 499C350C1F56F32400000412 /* CellConfigurator.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +31,7 @@
 		499C34E21F52BAB000000412 /* Data.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Data.swift; sourceTree = "<group>"; };
 		499C34E61F52BDE700000412 /* TableViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewModel.swift; sourceTree = "<group>"; };
 		499C34E81F52C32D00000412 /* beach@2x.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "beach@2x.jpg"; sourceTree = "<group>"; };
+		499C350C1F56F32400000412 /* CellConfigurator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CellConfigurator.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -82,6 +84,7 @@
 		499C34D91F52B68D00000412 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				499C350B1F56F2F900000412 /* CellConfigurator */,
 				499C34E51F52BDD600000412 /* ViewModel */,
 				499C34DC1F52B6B300000412 /* Cells */,
 				499C34DD1F52B6D200000412 /* TableViewController.swift */,
@@ -122,6 +125,14 @@
 				499C34E61F52BDE700000412 /* TableViewModel.swift */,
 			);
 			name = ViewModel;
+			sourceTree = "<group>";
+		};
+		499C350B1F56F2F900000412 /* CellConfigurator */ = {
+			isa = PBXGroup;
+			children = (
+				499C350C1F56F32400000412 /* CellConfigurator.swift */,
+			);
+			name = CellConfigurator;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -198,6 +209,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				499C350D1F56F32400000412 /* CellConfigurator.swift in Sources */,
 				499C34E11F52B86700000412 /* TableCells.swift in Sources */,
 				499C34E71F52BDE700000412 /* TableViewModel.swift in Sources */,
 				499C34DE1F52B6D200000412 /* TableViewController.swift in Sources */,
@@ -366,6 +378,7 @@
 				499C34D71F52B60400000412 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
