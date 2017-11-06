@@ -9,8 +9,13 @@
 import UIKit
 
 protocol ConfigurableCell {
+    static var reuseIdentifier: String { get }
     associatedtype DataType
     func configure(data: DataType)
+}
+
+extension ConfigurableCell {
+    static var reuseIdentifier: String { return String(describing: Self.self) }
 }
 
 protocol CellConfigurator {
@@ -20,7 +25,7 @@ protocol CellConfigurator {
 
 class TableCellConfigurator<CellType: ConfigurableCell, DataType>: CellConfigurator where CellType.DataType == DataType, CellType: UITableViewCell {
     
-    static var reuseId: String { return String(describing: CellType.self) }
+    static var reuseId: String { return CellType.reuseIdentifier }
     
     let item: DataType
     

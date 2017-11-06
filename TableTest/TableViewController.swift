@@ -11,28 +11,28 @@ import UIKit
 class TableViewController: UITableViewController {
 
     internal let viewModel = TableViewModel()
+    lazy private(set) var tableDirector: TableDirector = {
+        return TableDirector(tableView: self.tableView, items: self.viewModel.items)
+    }()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.tableView.rowHeight = UITableViewAutomaticDimension
         self.tableView.estimatedRowHeight = 50
         self.tableView.tableFooterView = UIView()
+        
+        self.tableView.reloadRows(at: <#T##[IndexPath]#>, with: <#T##UITableViewRowAnimation#>)
+
+        self.addHandlers()
     }
 
-    override func numberOfSections(in tableView: UITableView) -> Int {
-        return 1
-    }
-
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return viewModel.items.count
-    }
-    
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let item = viewModel.items[indexPath.row]
-
-        let cell = tableView.dequeueReusableCell(withIdentifier: type(of: item).reuseId)!
-        item.configure(cell: cell)
-
-        return cell
+    private func addHandlers() {
+        self.tableDirector.actionsProxy.on(.didSelect) { (c: UserCellConfig, cell) in
+            print("did select user cell", c.item, cell)
+        }.on(.custom(UserCell.userFollowAction)) { (c: UserCellConfig, cell) in
+            print("follow user", c.item)
+        }.on(.didSelect) { (c: ImageCellConfig, cell) in
+            print("did select image cell", c.item, cell)
+        }
     }
 }

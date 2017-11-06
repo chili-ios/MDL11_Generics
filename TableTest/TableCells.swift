@@ -11,10 +11,16 @@ import UIKit
 class UserCell: UITableViewCell, ConfigurableCell {
     @IBOutlet weak var avatarView: UIImageView!
     @IBOutlet weak var userNameLabel: UILabel!
+    
+    static let userFollowAction = "UserFollowAction"
 
     func configure(data user: User) {
         avatarView.image = UIImage(named: user.imageName)
         userNameLabel.text = user.name
+    }
+    
+    @IBAction func onFollowTap(_ sender: Any) {
+        CellAction.custom(type(of: self).userFollowAction).invoke(cell: self)
     }
 }
 
