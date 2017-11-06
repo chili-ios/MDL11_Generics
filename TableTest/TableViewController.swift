@@ -20,8 +20,6 @@ class TableViewController: UITableViewController {
         self.tableView.rowHeight = UITableViewAutomaticDimension
         self.tableView.estimatedRowHeight = 50
         self.tableView.tableFooterView = UIView()
-        
-        self.tableView.reloadRows(at: <#T##[IndexPath]#>, with: <#T##UITableViewRowAnimation#>)
 
         self.addHandlers()
     }
@@ -34,5 +32,10 @@ class TableViewController: UITableViewController {
         }.on(.didSelect) { (c: ImageCellConfig, cell) in
             print("did select image cell", c.item, cell)
         }
+    }
+
+    @IBAction func onUpdate(_ sender: Any) {
+        self.viewModel.update()
+        self.tableDirector.update(items: self.viewModel.items)
     }
 }

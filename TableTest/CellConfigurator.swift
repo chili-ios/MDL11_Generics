@@ -21,9 +21,10 @@ extension ConfigurableCell {
 protocol CellConfigurator {
     static var reuseId: String { get }
     func configure(cell: UIView)
+    var hash: Int { get }
 }
 
-class TableCellConfigurator<CellType: ConfigurableCell, DataType>: CellConfigurator where CellType.DataType == DataType, CellType: UITableViewCell {
+class TableCellConfigurator<CellType: ConfigurableCell, DataType: Hashable>: CellConfigurator where CellType.DataType == DataType, CellType: UITableViewCell {
     
     static var reuseId: String { return CellType.reuseIdentifier }
     
@@ -35,5 +36,15 @@ class TableCellConfigurator<CellType: ConfigurableCell, DataType>: CellConfigura
     
     func configure(cell: UIView) {
         (cell as! CellType).configure(data: item)
+    }
+
+    var hash: Int {
+        return String(describing: CellType.self).hashValue ^ item.hashValue
+    }
+}
+
+extension Int: Diffable {
+    public var diffIdentifier: AnyHashable {
+        return self
     }
 }

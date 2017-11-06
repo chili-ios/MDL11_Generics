@@ -12,3 +12,13 @@ struct User {
     let name: String
     let imageName: String
 }
+
+extension User: Hashable {
+    static func ==(lhs: User, rhs: User) -> Bool {
+        return lhs.hashValue == rhs.hashValue
+    }
+    
+    var hashValue: Int {
+        return name.hashValue ^ imageName.hashValue
+    }
+}

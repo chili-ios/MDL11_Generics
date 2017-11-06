@@ -155,7 +155,13 @@
                             <outlet property="delegate" destination="xiw-Zd-h9T" id="zwF-9p-sEV"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="au3-Ic-UgJ"/>
+                    <navigationItem key="navigationItem" id="au3-Ic-UgJ">
+                        <barButtonItem key="rightBarButtonItem" title="Update" id="6qw-lb-RGo">
+                            <connections>
+                                <action selector="onUpdate:" destination="xiw-Zd-h9T" id="rOB-Bh-B0j"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bii-cZ-Q2s" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
